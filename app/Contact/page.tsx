@@ -13,7 +13,7 @@ export default function Contact(){
         baseHue={120}
         className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
       >
-        <GradualSpacing className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-2xl md:text-6xl font-semibold text-center" text="Want to Contact Us?">
+        <GradualSpacing className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-2xl md:text-6xl font-semibold text-center" text="Want to Connect With Us?">
           
         </GradualSpacing>
         <div className="text-white w-full h-32 flex justify-center items-center">

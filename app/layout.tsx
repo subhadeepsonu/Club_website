@@ -29,7 +29,7 @@ export default function RootLayout({
         <div className=" min-h-screen w-full dark  bg-black ">
           <Navbar></Navbar>
         {children}
-        <div className="fixed w-full top-2 z-50">
+        <div className="fixed w-full top-1 z-50">
         <Dock className="md:w-96 flex justify-evenly items-center">
           <DockIcon>
               <TooltipProvider>
