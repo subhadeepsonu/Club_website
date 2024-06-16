@@ -4,7 +4,7 @@ import { CiLinkedin } from "react-icons/ci";
 
 export default function Membercard(){
     
-    return    <PinContainer  className="h-36 w-80 z-20 flex  " title="Subhadeep" href="https://ui.shadcn.com/docs/components/tooltip">
+    return    <PinContainer  className="h-36 w-80    z-20 flex  " title="Subhadeep" href="https://ui.shadcn.com/docs/components/tooltip">
             <div className="h-full  w-1/2 bg-red-300 rounded-lg text-white">
                 
             </div>

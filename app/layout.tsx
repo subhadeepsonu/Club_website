@@ -9,6 +9,7 @@ import { RiTeamLine } from "react-icons/ri";
 import { MdEmojiEvents } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
+import DotPattern from "@/components/magicui/dot-pattern";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -90,6 +91,7 @@ export default function RootLayout({
           </DockIcon>
           
         </Dock>
+        
         </div>
         </div></body>
     </html>

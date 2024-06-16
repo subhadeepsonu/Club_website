@@ -1,4 +1,5 @@
 import DotPattern from "@/components/magicui/dot-pattern";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
 import { Vortex } from "@/components/ui/vortex";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaInstagram, FaInstagramSquare, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -12,9 +13,9 @@ export default function Contact(){
         baseHue={120}
         className="flex items-center flex-col justify-center px-2 md:px-10  py-4 w-full h-full"
       >
-        <h2 className="text-white text-2xl md:text-6xl font-semibold text-center">
-          Want to Contact Us?
-        </h2>
+        <GradualSpacing className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-2xl md:text-6xl font-semibold text-center" text="Want to Contact Us?">
+          
+        </GradualSpacing>
         <div className="text-white w-full h-32 flex justify-center items-center">
             <div className="w-1/3 flex justify-around items-center">
             <FaLinkedin className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />

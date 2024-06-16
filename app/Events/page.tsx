@@ -9,7 +9,7 @@ export default function Events(){
     <EventRegister></EventRegister>
     </div>
     </div>
-    <DotPattern width={16} height={16} className="h-screen w-full ">
+    <DotPattern width={16} height={16} className="min-h-screen w-full ">
     </DotPattern>
     </div>
 }
