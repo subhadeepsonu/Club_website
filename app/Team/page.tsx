@@ -2,7 +2,7 @@ import DepartmentCard from "@/components/cards/department";
 import Membercard from "@/components/cards/member";
 import DotPattern from "@/components/magicui/dot-pattern";
 
-export default function(){
+export default function Team(){
     return <div className="flex justify-center items-center pt-28">
         <div className="grid grid-cols-4 gap-5">
         <DepartmentCard></DepartmentCard>

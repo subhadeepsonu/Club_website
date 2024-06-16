@@ -3,7 +3,7 @@ import { Vortex } from "@/components/ui/vortex";
 import { CiLinkedin } from "react-icons/ci";
 import { FaGithub, FaInstagram, FaInstagramSquare, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
 
-export default function(){
+export default function Contact(){
     return <div className="flex justify-center items-center h-screen w-full">
         <Vortex
         backgroundColor="black"
