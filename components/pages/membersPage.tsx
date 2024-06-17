@@ -28,7 +28,7 @@ export default function MembersPage(){
         return <div className="flex justify-center items-center pt-28">
             <div className="grid grid-cols-3">
                 {data.map((member)=>{
-                    return <Membercard name={member.name} role={member.role} department={member.departmentName}></Membercard>
+                    return <Membercard key={member.id} name={member.name} role={member.role} department={member.departmentName}></Membercard>
                 })}
             </div>
             <DotPattern></DotPattern>

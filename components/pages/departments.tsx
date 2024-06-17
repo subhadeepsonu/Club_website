@@ -55,8 +55,8 @@ export default function DepartmentsPage(){
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-5">
-                {data.map((department)=>{
-                    return <DepartmentCard name={department.name}></DepartmentCard>
+                {data.map((department,index)=>{
+                    return <DepartmentCard key={index} name={department.name}></DepartmentCard>
                 })}
             </div>
             <DotPattern ></DotPattern>
