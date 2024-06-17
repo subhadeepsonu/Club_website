@@ -17,7 +17,7 @@ model events {
   name        String   @id
   imgurl      String
   description String
-  date        DateTime
+  date        DateTime @db.Date
   location    String
 }
 
@@ -25,6 +25,7 @@ model department {
   name    String    @id
   imgurl  String
   members members[]
+  year    Int
 }
 
 model members {
@@ -34,4 +35,5 @@ model members {
   department     department @relation(fields: [departmentName], references: [name])
   departmentName String
   role           String
+  year           Int
 }
