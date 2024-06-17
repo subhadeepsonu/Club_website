@@ -37,6 +37,5 @@ model members {
   imgurl       String
   department   department @relation(fields: [departmentid], references: [id])
   departmentid Int
-  role         String
-  year         Int
+  role         String     @default("Member")
 }

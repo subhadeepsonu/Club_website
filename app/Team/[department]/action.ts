@@ -6,6 +6,9 @@ export async function GetAllMembers(id:number){
             where:{
                 departmentid:id
             },
+            orderBy:{
+                id:"asc"
+            },
             include:{
                 department:{
                     select:{
