@@ -4,10 +4,10 @@ import Loading from "@/app/Team/[department]/loading"
 import { useQuery } from "@tanstack/react-query"
 import DotPattern from "../magicui/dot-pattern"
 import Membercard from "../cards/member"
-export default function MembersPage(){
+export default function MembersPage(props:any){
     const {data,isError,isLoading} = useQuery({
         queryKey:["members"],
-        queryFn:()=>GetAllMembers()
+        queryFn:()=>GetAllMembers(parseInt(props.id))
     })
     if(isLoading){
         return <Loading></Loading>
@@ -28,7 +28,7 @@ export default function MembersPage(){
         return <div className="flex justify-center items-center pt-28">
             <div className="grid grid-cols-3">
                 {data.map((member)=>{
-                    return <Membercard key={member.id} name={member.name} role={member.role} department={member.departmentName}></Membercard>
+                    return <Membercard key={member.id} name={member.name} role={member.role} department={member.department.name}></Membercard>
                 })}
             </div>
             <DotPattern></DotPattern>

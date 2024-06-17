@@ -10,7 +10,7 @@ import { MdEmojiEvents } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 import DotPattern from "@/components/magicui/dot-pattern";
-import { ReactQuearyProvider } from "@/utils/quaryProvider";
+import RecoilContextProvider, { ReactQuearyProvider } from "@/utils/quaryProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,10 +28,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className=" min-h-screen w-full dark  bg-black ">
+          <RecoilContextProvider>
           <ReactQuearyProvider>
           <Navbar></Navbar>
         {children}
         </ReactQuearyProvider>
+        </RecoilContextProvider>
         <div className="fixed w-full top-1 z-50">
         <Dock className="md:w-96 flex justify-evenly items-center">
           <DockIcon>

@@ -5,13 +5,12 @@ import { FaGithub, FaInstagramSquare, FaLinkedin, FaTwitter, FaYoutube } from "r
 
 export default function Contact(){
     return <div className="flex flex-col justify-center items-center h-screen w-full">
-        
         <motion.h2 
         initial={{
-          scale:0.5
+          opacity:0
         }}
         animate={{
-          scale:1
+          opacity:1
         }}
         transition={{
           duration:0.5
@@ -20,16 +19,32 @@ export default function Contact(){
           Want to Contact Us?
         </motion.h2>
         <div className="text-white w-full h-32 flex justify-center items-center z-20">
-            <div className="w-1/3 flex justify-around items-center">
+            <motion.div initial={{
+              scale:2
+            }} 
+            animate={{
+              scale:1
+            }}
+            transition={{
+              duration:0.5
+            }}
+            className="w-1/3 flex justify-around items-center">
+            <a target="_blank"  href={"https://www.linkedin.com/company/geeks-for-geeks-vitap/"}>
             <FaLinkedin className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
-
+            </a>
+        <a target="_blank" href={"https://github.com/GFGVITAP"}>
         <FaGithub className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
+        </a>
+        <a target="_blank" href={"https://www.instagram.com/geeksforgeeks_vitap"}>
         <FaInstagramSquare className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
-
+        </a>
+        <a target="_blank" href={"https://x.com/GFGVITAP"}>
         <FaTwitter className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
-
-        <FaYoutube className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
-        </div>
+        </a>
+        <a target="_blank" href={'https://www.youtube.com/@GFGVIT-AP'}>
+        <FaYoutube  className="w-9 h-9 hover:scale-110 duration-150 transition-all hover:cursor-pointer hover:text-cyan-600" />
+        </a>
+        </motion.div>
         </div>
       <DotPattern></DotPattern>
 

@@ -1,10 +1,17 @@
 "use server"
 import prisma from "@/db"
-export async function GetAllMembers(){
+export async function GetAllMembers(id:number){
     try {
         const response = await prisma.members.findMany({
             where:{
-                
+                departmentid:id
+            },
+            include:{
+                department:{
+                    select:{
+                        name:true
+                    }
+                }
             }
         })
         return response

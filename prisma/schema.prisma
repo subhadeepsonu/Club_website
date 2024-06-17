@@ -14,26 +14,29 @@ datasource db {
 }
 
 model events {
-  name        String   @id
+  id          Int    @id @default(autoincrement())
+  name        String
   imgurl      String
   description String
-  date        DateTime @db.Date
+  date        String
+  year        Int    @default(2024)
   location    String
 }
 
 model department {
-  name    String    @id
+  id      Int       @id @default(autoincrement())
+  name    String
   imgurl  String
   members members[]
   year    Int
 }
 
 model members {
-  id             Int        @id @default(autoincrement())
-  name           String
-  imgurl         String
-  department     department @relation(fields: [departmentName], references: [name])
-  departmentName String
-  role           String
-  year           Int
+  id           Int        @id @default(autoincrement())
+  name         String
+  imgurl       String
+  department   department @relation(fields: [departmentid], references: [id])
+  departmentid Int
+  role         String
+  year         Int
 }
