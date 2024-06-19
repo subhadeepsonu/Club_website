@@ -5,7 +5,9 @@ import GradualSpacing from "../magicui/gradual-spacing";
 import { CoolMode } from "../magicui/cool-mode";
 import { Button } from "../ui/button";
 import { PiConfettiBold } from "react-icons/pi";
+import { useRef } from "react";
 export default function Hero(){
+  const r1 = useRef(null)
     return <HeroHighlight>
     <motion.h1
       initial={{
