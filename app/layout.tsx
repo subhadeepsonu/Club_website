@@ -11,6 +11,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import Link from "next/link";
 import DotPattern from "@/components/magicui/dot-pattern";
 import RecoilContextProvider, { ReactQuearyProvider } from "@/utils/quaryProvider";
+import Nav from "@/components/nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,11 +31,12 @@ export default function RootLayout({
         <div className=" min-h-screen w-full dark  bg-black ">
           <RecoilContextProvider>
           <ReactQuearyProvider>
-          <Navbar></Navbar>
+          <Nav></Nav>
         {children}
         </ReactQuearyProvider>
         </RecoilContextProvider>
-        <div className="fixed w-full top-1 z-50">
+
+        {/* <div className="fixed w-full top-1 z-50">
         <Dock className="md:w-96 flex justify-evenly items-center">
           <DockIcon>
               <TooltipProvider>
@@ -97,7 +99,7 @@ export default function RootLayout({
           
         </Dock>
         
-        </div>
+        </div> */}
         </div></body>
     </html>
   );

@@ -21,7 +21,9 @@ export default function Home() {
     setXscale(e.clientX)
     setYscale(e.clientY)
 }} className=" bg-black  w-full">
-    <div ref={r2} className="fixed h-12 w-12 rounded-full bg-white z-50"></div>
+    <div ref={r2} className="fixed h-12 w-12 rounded-full bg-white z-50">
+      <img className="h-full w-full object-contain rounded-full" src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"></img>
+    </div>
     <Hero></Hero>
     
    
