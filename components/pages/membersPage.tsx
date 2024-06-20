@@ -25,10 +25,11 @@ export default function MembersPage(props:any){
             <DotPattern></DotPattern>
         </div>
         }
-        return <div className="flex justify-center items-center pt-28">
-            <div className="grid grid-cols-3">
+        return <div className="flex flex-col justify-center items-center pt-28">
+            <p className="text-white z-20 text-2xl font-bold lg:text-5xl">{data[0].department.name}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {data.map((member)=>{
-                    return <Membercard key={member.id} name={member.name} role={member.role} department={member.department.name}></Membercard>
+                    return <Membercard key={member.id} name={member.name} role={member.role} department={member.department.name} imgurl={member.imgurl}></Membercard>
                 })}
             </div>
             <DotPattern></DotPattern>

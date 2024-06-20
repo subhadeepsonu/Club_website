@@ -34,12 +34,6 @@ export default function Hero(){
       </Highlight>
       </div>
     </motion.h1>
-    <div className="fixed ">
-    <CoolMode>
-        <Button>
-        <PiConfettiBold />
-        </Button>
-    </CoolMode>
-    </div>
+
   </HeroHighlight>
 }

@@ -32,8 +32,8 @@ export default function Navbar(){
             duration:0.5
         })
     })
-    return <div className="fixed flex justify-center items-center h-16 backdrop-blur-sm w-full bg-transparent top-1 z-50 ">
-        <div className=" w-1/2 h-full text-zinc-300   flex justify-evenly items-center font-medium ">
+    return <div className="fixed flex justify-center items-center h-16 backdrop-blur-sm w-full bg-transparent top-0 z-50 ">
+        <div className="w-full md:w-1/2 h-full text-zinc-300   flex justify-evenly items-center font-medium ">
             <Link ref={r1} href={'/'} className="hover:text-white  ">Home</Link>
             <Link ref={r2} href={'/Team'} className="hover:text-white ">Departments</Link>
             <Link ref={r3} href={'/Events'} className="hover:text-white ">Events</Link>

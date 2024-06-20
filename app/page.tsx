@@ -3,6 +3,7 @@ import Hero from "@/components/homepage/Hero";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
+import MeetTheTeam from "@/components/MeetTheteam";
 export default function Home() {
   const [xscale,setXscale] = useState(0)
   const [yscale,setYscale] = useState(0)
@@ -25,9 +26,11 @@ export default function Home() {
       <img className="h-full w-full object-contain rounded-full" src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"></img>
     </div>
     <Hero></Hero>
-    
-   
-    
+    <MeetTheTeam></MeetTheTeam> 
+    {/* <div className="h-20 w-full flex items-center justify-center text-white">
+      
+      Made With ❤️ By Subhadeep Thandaka
+      </div>    */}
    </div>
   );
 }

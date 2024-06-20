@@ -33,6 +33,10 @@ export default function RootLayout({
           <ReactQuearyProvider>
           <Nav></Nav>
         {children}
+        <div className="h-20 w-full flex items-center justify-center text-white">
+      
+      Made With ❤️ By Subhadeep Thandaka
+      </div> 
         </ReactQuearyProvider>
         </RecoilContextProvider>
 
