@@ -13,14 +13,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model user {
+  id               String             @id @default(cuid())
+  name             String
+  email            String             @unique
+  password         String
+  role             String             @default("user")
+  registeredEvents registeredEvents[]
+}
+
+model registeredEvents {
+  id      String  @id @default(cuid())
+  userid  String
+  eventid Int
+  checkIn Boolean @default(false)
+  user    user    @relation(fields: [userid], references: [id])
+  event   events  @relation(fields: [eventid], references: [id])
+}
+
 model events {
-  id          Int    @id @default(autoincrement())
-  name        String
-  imgurl      String
-  description String
-  date        String
-  year        Int    @default(2024)
-  location    String
+  id               Int                @id @default(autoincrement())
+  name             String
+  imgurl           String
+  description      String
+  date             String
+  year             Int                @default(2024)
+  location         String
+  registeredEvents registeredEvents[]
 }
 
 model department {

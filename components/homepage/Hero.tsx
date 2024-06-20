@@ -2,9 +2,6 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 import GradualSpacing from "../magicui/gradual-spacing";
-import { CoolMode } from "../magicui/cool-mode";
-import { Button } from "../ui/button";
-import { PiConfettiBold } from "react-icons/pi";
 import { useRef } from "react";
 export default function Hero(){
   const r1 = useRef(null)
