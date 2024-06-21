@@ -66,7 +66,7 @@ export default function EventsPage(){
             </div>
             <div className="flex justify-center items-center w-full">
             <div className=" w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-5">
-            {data.map((event,index)=>{
+            {data.map((event:any,index:number)=>{
                 return <EventRegister title={event.name} image={event.imgurl} location={event.location} description={event.description} date = {event.date} year={event.year} key={index}></EventRegister>
             })}
             <DotPattern></DotPattern>
