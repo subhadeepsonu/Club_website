@@ -1,18 +1,18 @@
 "use client"
 import { GetAllEvents } from "@/app/Events/action"
 import Loading from "@/app/Events/loading"
-import { useQuery } from "@tanstack/react-query"
+import { useQueries, useQuery } from "@tanstack/react-query"
 import EventRegister from "../cards/eventRegister"
 import DotPattern from "../magicui/dot-pattern"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import { useRecoilState,  } from "recoil"
 import {  eventYearAtom } from "@/store/atoms"
 export default function EventsPage(){
-    
     const [year,setYear] = useRecoilState(eventYearAtom)
     const {data,isLoading,isError}= useQuery({
         queryKey:["events",year],
-        queryFn:()=> GetAllEvents(year)
+        queryFn:()=> GetAllEvents(year),
+        
     })
     if(isLoading){
         return <Loading></Loading>
@@ -66,8 +66,8 @@ export default function EventsPage(){
             </div>
             <div className="flex justify-center items-center w-full">
             <div className=" w-11/12 grid grid-cols-1 lg:grid-cols-2 gap-5">
-            {data.map((event:any,index:number)=>{
-                return <EventRegister title={event.name} image={event.imgurl} location={event.location} description={event.description} date = {event.date} year={event.year} key={index}></EventRegister>
+            {data.map((event,index:number)=>{
+                return <EventRegister id={event.id} registered={event.registeredEvents} title={event.name} image={event.imgurl} location={event.location} description={event.description} date = {event.date} year={event.year} key={index}></EventRegister>
             })}
             <DotPattern></DotPattern>
             </div>

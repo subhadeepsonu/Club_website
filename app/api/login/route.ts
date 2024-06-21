@@ -14,7 +14,7 @@ export async function POST(req:NextRequest){
         if(isOld){
             const isMatch = await bcrypt.compare(data.password,isOld.password)
             if(isMatch){
-                const token = jwt.sign(isOld,"secert")
+                const token = jwt.sign(isOld,process.env.JWT_TOKEN_SECRET!)
                 cookies().set("token",token)
                 return NextResponse.json({
                     success:true,

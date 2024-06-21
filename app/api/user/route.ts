@@ -1,17 +1,15 @@
 import prisma from "@/db";
+import { GetDataFromToken } from "@/utils/GetDataFromTokeen";
 import { NextRequest, NextResponse } from "next/server";
-export async function POST(req:NextRequest){
-    try {
-        const data = await req.json()
-        const response = await prisma.registeredEvents.findMany({
-            where:{
-                userid:data.userid
-            },
-            include:{
-                event:{
 
-                }
-            }
+export async function GET(req:NextRequest){
+    try {
+        const data = await GetDataFromToken(req)
+        const response = await prisma.user.findUnique({
+            where:{
+                id:data.id
+            },
+
         })
         return NextResponse.json({
             success:true,

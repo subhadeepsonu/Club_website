@@ -2,7 +2,39 @@
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { CiLocationOn } from "react-icons/ci";
+import { Button } from "../ui/button";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
+import { toast } from "sonner";
+import { VscLoading } from "react-icons/vsc";
 export default function EventRegister(props:any){
+    const queryClient = useQueryClient()
+    const {data}= useQuery({
+        queryKey:['user details'],
+        queryFn:async ()=>{
+            const response = await axios.get('/api/user')
+            return response.data
+        }
+    })
+    const MutateRegister = useMutation({
+         mutationFn: async ()=>{
+            const responce = await axios.post('/api/register',{
+                   userid:data.message.id,
+                    eventid:props.id
+        })
+                    return responce.data
+                },
+                onSettled:(data)=>{
+                    if(data.success){
+                        toast.success(data.message)
+                        queryClient.invalidateQueries({queryKey:["events"]})
+                    }
+                    else{
+                        toast.error(data.message)
+                    }
+                }
+        })
+
             return <motion.div initial={{
                 opacity:0
             }}
@@ -30,9 +62,10 @@ export default function EventRegister(props:any){
                         </div>
                         <div className="flex items-center font-semibold ">
                         <CiLocationOn className="h-6 w-6" />{props.location}
-
                         </div>
-                        
+                        {(props.registered.length==0) ? <Button disabled={MutateRegister.isPending} size={"sm"} onClick={()=>{
+                            MutateRegister.mutate()
+                        }}>{(MutateRegister.isPending)?<VscLoading className="animate-spin" />: "Register"}</Button> :<Button size={"sm"} disabled>Registered</Button>}  
                     </div>
                 </div>
                     

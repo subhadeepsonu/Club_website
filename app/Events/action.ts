@@ -8,8 +8,16 @@ export async function GetAllEvents(year:number){
             },
             where:{
                 year:year
+            },
+            include:{
+                registeredEvents:{
+                    where:{
+                        userid:"clxol63jn0000xgpl9ocy0f0u"
+                    }
+                }
             }
         })
+        
         return response
     } catch (error) {
         throw new Error(`${error}`)

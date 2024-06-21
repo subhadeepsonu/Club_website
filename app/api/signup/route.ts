@@ -27,7 +27,7 @@ export async function POST(req:NextRequest){
                     password:hash
                 }
             })
-            const token =  jwt.sign(response,"secret")
+            const token =  jwt.sign(response,process.env.JWT_TOKEN_SECRET!)
             cookies().set('token',token)
             return NextResponse.json({
                 success:true,

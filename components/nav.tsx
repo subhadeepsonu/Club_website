@@ -4,11 +4,14 @@ import gsap from "gsap";
 import Link from "next/link";
 import { useRef } from "react";
 import  { usePathname, useRouter } from "next/navigation";
-import { Button } from "./ui/button";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "sonner";
-
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
+import { ScrollArea } from "./ui/scroll-area";
+import { RegisteredEvents } from "@/actions/RegisteredEvents";
 export default function Navbar(){
     const r1 = useRef(null)
     const r2 = useRef(null)
@@ -17,6 +20,22 @@ export default function Navbar(){
     const r5 = useRef(null)
     const router = useRouter()
     const path = usePathname()
+    const {data,isLoading,isError}= useQuery({
+        queryKey:['user details'],
+        queryFn:async ()=>{
+            const response = await axios.get('/api/user')
+            return response.data
+        }
+    })
+    const id = data?.message.id
+    const events = useQuery({
+        queryKey:["Registered Events"],
+        queryFn: ()=>{
+            return RegisteredEvents(id)
+        }, 
+        enabled:!!id
+    }
+)
     const MutateLogOut = useMutation({
         mutationFn: async ()=>{
             const responce = await axios.get('/api/logout')
@@ -70,9 +89,37 @@ export default function Navbar(){
             <Link ref={r2} href={'/Team'} className="hover:text-white ">Departments</Link>
             <Link ref={r3} href={'/Events'} className="hover:text-white ">Events</Link>
             <Link ref={r4} href={'/Contact'}className="hover:text-white ">Contact</Link>
-            <Button ref={r5} size={"sm"} onClick={()=>{
-                    MutateLogOut.mutate()
-            }}>Log Out</Button>
+            <DropdownMenu >
+                <DropdownMenuTrigger>
+                <div ref={r5} className="flex justify-center items-center">
+                <div className="p-2 text-cyan-500 font-bold">
+                    {(()=>{
+                        if(isLoading){
+                            return <p>...</p>
+                        }
+                        else if(isError){
+                            return <p>.</p>
+                        }
+                        else{
+                            return <p>{data.message.name}</p>
+                        }
+                    })()}
+                </div>
+            <Avatar>
+                <AvatarImage src=""></AvatarImage>
+                <AvatarFallback>😊</AvatarFallback>
+            </Avatar>
+            </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="dark">
+                    <DropdownMenuItem>
+                        Registered Events
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="flex justify-center items-center"><Button size={"sm"} onClick={()=>{
+                        MutateLogOut.mutate()
+                    }}>Log Out</Button></DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </div>
     </div>}
 }
