@@ -1,16 +1,14 @@
 "use client"
 import { GetAllDepartments } from "@/app/Team/action"
-import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
+import {  useQuery } from "@tanstack/react-query"
 import DotPattern from "../magicui/dot-pattern"
 import Loading from "@/app/Team/loading"
-import { Input } from "../ui/input"
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import DepartmentCard from "../cards/department"
-import { FilterIcon } from "lucide-react"
 import { useRecoilState } from "recoil"
 import { departmentYearAtom } from "@/store/atoms"
 export default function DepartmentsPage(){
-    const queryClient = useQueryClient()
     const [year,setYear] = useRecoilState(departmentYearAtom)
     const {data,isLoading,isError}= useQuery({
         queryKey:["department",year],

@@ -25,12 +25,9 @@ export default function Home() {
     <div ref={r2} className="fixed h-12 w-12 rounded-full bg-white z-50">
       <img className="h-full w-full object-contain rounded-full" src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"></img>
     </div>
+
     <Hero></Hero>
     <MeetTheTeam></MeetTheTeam> 
-    {/* <div className="h-20 w-full flex items-center justify-center text-white">
-      
-      Made With ❤️ By Subhadeep Thandaka
-      </div>    */}
    </div>
   );
 }

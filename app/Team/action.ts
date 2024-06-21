@@ -11,7 +11,7 @@ export async function GetAllDepartments(year:number){
                 year:year
             }
         })
-        console.log(responce)
+        
         return responce
     } catch (error) {
         throw new Error(`${error}`)
