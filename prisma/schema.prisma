@@ -39,6 +39,7 @@ model events {
   date             String
   year             Int                @default(2024)
   location         String
+  isOpen           Boolean            @default(true)
   registeredEvents registeredEvents[]
 }
 
