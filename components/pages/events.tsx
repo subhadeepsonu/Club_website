@@ -1,6 +1,6 @@
 "use client"
-import { GetAllEvents } from "@/app/all/action"
-import Loading from "@/app/all/loading"
+import { GetAllEvents } from "@/app/events/action"
+import Loading from "@/app/events/loading"
 import { useQuery } from "@tanstack/react-query"
 import EventRegister from "../cards/eventRegister"
 import DotPattern from "../magicui/dot-pattern"
