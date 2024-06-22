@@ -77,8 +77,8 @@ export default function Navbar(){
         <div className="w-full md:w-1/2 h-full text-zinc-300   flex justify-evenly items-center font-medium ">
             <Link ref={r1} href={'/'} className="hover:text-white  ">Home</Link>
             <Link ref={r2} href={'/Team'} className="hover:text-white ">Departments</Link>
-            <Link ref={r3} href={'/Events'} className="hover:text-white ">Events</Link>
-            <Link ref={r4} href={'/Contact'}className="hover:text-white ">Contact</Link>
+            <Link ref={r3} href={'/events'} className="hover:text-white ">Events</Link>
+            <Link ref={r4} href={'/contact'}className="hover:text-white ">Contact</Link>
             <DropdownMenu >
                 <DropdownMenuTrigger>
                 <div ref={r5} className="flex justify-center items-center">

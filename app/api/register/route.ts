@@ -3,40 +3,57 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req:NextRequest){
     try {
         const data = await req.json()
-        console.log(data)
-        const alreadyIn = await prisma.registeredEvents.findMany({
+        const available = await prisma.events.findUnique({
             where:{
-                userid:data.userid,
-                eventid:data.eventid
+                id:data.eventid
+            },
+            select:{
+                isOpen:true
             }
         })
-        if(alreadyIn.length!=0){
-            console.log(alreadyIn)
-            return NextResponse.json({
-                success:false,
-                message:"Already Registered"
-            })
-        }
-        else{
-            const response = await prisma.registeredEvents.create({
-                data:{
+        console.log(available)
+        if(available?.isOpen){
+            const alreadyIn = await prisma.registeredEvents.findMany({
+                where:{
                     userid:data.userid,
                     eventid:data.eventid
                 }
             })
-            if(response){
-            return NextResponse.json({
-                success:true,
-                message:"Registered Successfully"
-            })
+            if(alreadyIn.length!=0){
+                console.log(alreadyIn)
+                return NextResponse.json({
+                    success:false,
+                    message:"Already Registered"
+                })
+            }
+            else{
+                const response = await prisma.registeredEvents.create({
+                    data:{
+                        userid:data.userid,
+                        eventid:data.eventid
+                    }
+                })
+                if(response){
+                return NextResponse.json({
+                    success:true,
+                    message:"Registered Successfully"
+                })
+            }
+            else{
+                return NextResponse.json({
+                    success:false,
+                    message:"could not register"
+                })
+            }
+            }
         }
         else{
             return NextResponse.json({
                 success:false,
-                message:"could not register"
+                message:"Registrations closed"
             })
         }
-        }
+        
     } catch (error) {
             return NextResponse.json({
                 success:false,
