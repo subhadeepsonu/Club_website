@@ -3,11 +3,11 @@ import { NextRequest } from "next/server";
 
 export const GetDataFromToken = (req: NextRequest) => {
     try {
-        const token = req.cookies.get('token')?.value || "";
+        const token = req.cookies.get('token');
         if (!token) {
             throw new Error("No token found");
         }
-        const decodedToken: any = jwt.verify(token,process.env.JWT_TOKEN_SECRET!);
+        const decodedToken: any = jwt.verify(token.value,process.env.JWT_TOKEN_SECRET!);
         console.log(decodedToken)
         return decodedToken;
     } catch (error:any) {

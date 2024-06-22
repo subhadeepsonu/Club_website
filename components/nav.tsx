@@ -10,8 +10,6 @@ import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { ScrollArea } from "./ui/scroll-area";
-import { RegisteredEvents } from "@/actions/RegisteredEvents";
 export default function Navbar(){
     const r1 = useRef(null)
     const r2 = useRef(null)
@@ -27,15 +25,6 @@ export default function Navbar(){
             return response.data
         }
     })
-    const id = data?.message.id
-    const events = useQuery({
-        queryKey:["Registered Events"],
-        queryFn: ()=>{
-            return RegisteredEvents(id)
-        }, 
-        enabled:!!id
-    }
-)
     const MutateLogOut = useMutation({
         mutationFn: async ()=>{
             const responce = await axios.get('/api/logout')
