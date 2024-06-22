@@ -9,13 +9,15 @@ import { toast } from "sonner";
 import { VscLoading } from "react-icons/vsc";
 export default function EventRegister(props:any){
     const queryClient = useQueryClient()
-    const {data}= useQuery({
+    const {data,isLoading,isError}= useQuery({
         queryKey:['user details'],
         queryFn:async ()=>{
             const response = await axios.get('/api/user')
+            console.log(response)
             return response.data
         }
     })
+    const check = props.registered.filter((event:any)=> event.userid==data.id)
     const MutateRegister = useMutation({
          mutationFn: async ()=>{
             const responce = await axios.post('/api/register',{
@@ -34,7 +36,19 @@ export default function EventRegister(props:any){
                     }
                 }
         })
-
+        if(isLoading){
+            return <div>
+                loading
+            </div>
+        }
+        if(isError){
+            return <div>
+                error
+            </div>
+        }
+        else{
+            const check = props.registered.filter((event:any)=> event.userid==data.message.id)
+            console.log(data.message.id)
             return <motion.div initial={{
                 opacity:0
             }}
@@ -63,11 +77,12 @@ export default function EventRegister(props:any){
                         <div className="flex items-center font-semibold ">
                         <CiLocationOn className="h-6 w-6" />{props.location}
                         </div>
-                        {(props.registered.length==0) ? <Button disabled={MutateRegister.isPending} size={"sm"} onClick={()=>{
+                        {(check.length==0) ? <Button disabled={MutateRegister.isPending} size={"sm"} onClick={()=>{
                             MutateRegister.mutate()
                         }}>{(MutateRegister.isPending)?<VscLoading className="animate-spin" />: "Register"}</Button> :<Button size={"sm"} disabled>Registered</Button>}  
                     </div>
                 </div>
                     
             </motion.div>
+        }
 }

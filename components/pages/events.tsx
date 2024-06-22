@@ -1,7 +1,7 @@
 "use client"
 import { GetAllEvents } from "@/app/Events/action"
 import Loading from "@/app/Events/loading"
-import { useQueries, useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import EventRegister from "../cards/eventRegister"
 import DotPattern from "../magicui/dot-pattern"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
@@ -9,6 +9,7 @@ import { useRecoilState,  } from "recoil"
 import {  eventYearAtom } from "@/store/atoms"
 export default function EventsPage(){
     const [year,setYear] = useRecoilState(eventYearAtom)
+    
     const {data,isLoading,isError}= useQuery({
         queryKey:["events",year],
         queryFn:()=> GetAllEvents(year),
