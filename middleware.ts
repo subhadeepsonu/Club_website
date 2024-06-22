@@ -20,7 +20,8 @@ export const config = {
         '/events',
         '/Team',
         '/Team/:department*',
-        '/contact'
+        '/contact',
+        '/registeredevents'
         
     ]
 }

@@ -1,5 +1,32 @@
 import prisma from "@/db";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import jwt from "jsonwebtoken"
+export async function GET(){
+    try {
+    const token:any = cookies().get('token')
+    const data:any = jwt.verify(token?.value,process.env.JWT_TOKEN_SECRET!)
+    const response = await prisma.registeredEvents.findMany({
+        where:{
+            userid:data.id
+        },
+        include:{
+            event:{
+                
+            }
+        }
+    })
+    return NextResponse.json({
+        success:true,
+        message:response
+    })
+    } catch (error) {
+        return NextResponse.json({
+            success:false,
+            message:"something went wrong"
+        })
+    }
+}
 export async function POST(req:NextRequest){
     try {
         const data = await req.json()

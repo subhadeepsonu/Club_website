@@ -34,7 +34,7 @@ export default function EventsPage(){
                         <DropdownMenuTrigger className="bg-black p-2 rounded-lg text-white border-2 border-zinc-700">
                             {year}
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent>
+                        <DropdownMenuContent className="dark">
                         <DropdownMenuItem 
                         onClick={()=>{
                             setYear(2023)

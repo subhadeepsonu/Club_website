@@ -32,7 +32,7 @@ export default function DepartmentsPage(){
                         <DropdownMenuTrigger className="border-2 border-zinc-700 p-2 rounded-lg bg-black z-20">
                             {year}
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent>
+                        <DropdownMenuContent className="dark">
                         <DropdownMenuItem onClick={()=>{
                             setYear(2023)
                             

@@ -101,11 +101,13 @@ export default function Navbar(){
             </Avatar>
             </div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="dark">
-                    <DropdownMenuItem>
+                <DropdownMenuContent className="dark cursor-pointer">
+                    <Link href={'/registeredevents'}>
+                    <DropdownMenuItem className="p-4 cursor-pointer">
                         Registered Events
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="flex justify-center items-center"><Button size={"sm"} onClick={()=>{
+                    </Link>
+                    <DropdownMenuItem className="flex justify-center items-center cursor-pointer"><Button size={"sm"} onClick={()=>{
                         MutateLogOut.mutate()
                     }}>Log Out</Button></DropdownMenuItem>
                 </DropdownMenuContent>
