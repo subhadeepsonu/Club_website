@@ -15,13 +15,14 @@ import { LoginSchema } from "@/zod/scehma";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios"
 import Link from "next/link";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { VscLoading } from "react-icons/vsc";
 export default function Login(){
+  const queryClient = useQueryClient()
     const form  = useForm<z.infer<typeof LoginSchema>>({
         resolver:zodResolver(LoginSchema),
         mode:"onChange",
@@ -48,6 +49,7 @@ export default function Login(){
         },
         onSuccess:(data)=>{ 
                  if(data.success){
+                    queryClient.invalidateQueries({queryKey:[]})
                     toast.success(`${data.message}`)
                     router.replace('/')
                  }
