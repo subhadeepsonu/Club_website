@@ -22,6 +22,7 @@ export default function Navbar(){
         queryKey:['user details'],
         queryFn:async ()=>{
             const response = await axios.get('/api/user')
+            console.log(response)
             return response.data
         }
     })
