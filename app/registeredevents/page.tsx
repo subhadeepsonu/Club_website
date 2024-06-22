@@ -25,8 +25,8 @@ export default function RegisteredEvents(){
         </div>
     }
     return <div className="flex justify-center flex-col items-center min-h-screen w-full text-white text-center pt-28">
-        {data.message.map((event:any)=>{
-           return <div className="flex justify-center items-center p-4 w-full h-30">
+        {data.message.map((event:any,index:number)=>{
+           return <div key={index}  className="flex justify-center items-center p-4 w-full h-30">
             {JSON.stringify(event)}
            </div>
         })}
