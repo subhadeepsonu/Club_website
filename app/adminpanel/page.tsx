@@ -25,14 +25,14 @@ export default function AdminPanel(){
     }
     if(data){
         if(data.message.role==="admin"){
-            return <div className="h-screen w-full flex justify-center items-center text-white z-20">
+            return <div className="h-screen w-full flex justify-center items-center text-white ">
             Admin Panel
             <DotPattern></DotPattern>
     </div>  
         }
         else{
-            return <div className="h-screen w-full flex justify-center items-center text-white z-20">
-            Ur not authorixed lil nigga
+            return <div className="h-screen w-full flex justify-center items-center text-white ">
+            Ur not authorized lil nigga
             <DotPattern></DotPattern>
     </div>  
         }
