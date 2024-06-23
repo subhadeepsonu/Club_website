@@ -24,7 +24,7 @@ export default function DepartmentsPage(){
         </div>
     }
     if(data){
-        return <div className="min-h-screen w-full flex flex-col justify-start pt-28 items-center text-white z-20">
+        return <div className="min-h-screen w-full flex flex-col justify-start pt-16 items-center text-white z-20">
             <div className="w-10/12 my-5 h-20  rounded-lg flex justify-between items-center">
                 <p className="text-white font-semibold z-20 text-4xl">Departments</p>
                 <div className="w-1/2 flex justify-end items-center">

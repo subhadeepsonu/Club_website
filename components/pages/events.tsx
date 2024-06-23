@@ -25,7 +25,7 @@ export default function EventsPage(){
     </div>
     }
     if(data){
-        return <div className="min-h-screen w-full flex flex-col justify-start items-center pt-28 ">
+        return <div className="min-h-screen w-full flex flex-col justify-start items-center pt-16 ">
             <div className="w-10/12 my-5 h-20  rounded-lg flex justify-between items-center">
                 <p className="text-white font-semibold z-20 text-4xl">Events</p>
                 <div className="w-1/2 flex justify-end items-center">
