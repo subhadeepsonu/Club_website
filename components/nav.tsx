@@ -102,6 +102,26 @@ export default function Navbar(){
             </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="dark cursor-pointer">
+                    
+                    {(()=>{
+                        if(isLoading){
+                            return <div>Loading...</div>
+                        }
+                        else if(isError){
+                            return <div> Error</div>
+                        }
+                        else{
+                            console.log(data.message.role)
+                            if(data.message.role==="admin"){
+                               return <Link href={'/adminpanel'}>
+                                <DropdownMenuItem className="p-4 cursor-pointer">Admin Panel</DropdownMenuItem>
+                                </Link>
+                            }
+                            else{
+                                return null
+                            }
+                        }
+                    })()}
                     <Link href={'/registeredevents'}>
                     <DropdownMenuItem className="p-4 cursor-pointer">
                         Registered Events
