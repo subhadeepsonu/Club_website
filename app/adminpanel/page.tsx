@@ -1,8 +1,9 @@
 "use client"
 import DotPattern from "@/components/magicui/dot-pattern";
+import AdminPanel from "@/components/pages/adminPanel";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-export default function AdminPanel(){
+export default function AdminPanelPage(){
     const {data,isLoading,isError}= useQuery({
         queryKey:["admin details"],
         queryFn: async ()=>{
@@ -25,10 +26,7 @@ export default function AdminPanel(){
     }
     if(data){
         if(data.message.role==="admin"){
-            return <div className="h-screen w-full flex justify-center items-center text-white ">
-            Admin Panel
-            <DotPattern></DotPattern>
-    </div>  
+            return <AdminPanel></AdminPanel>
         }
         else{
             return <div className="h-screen w-full flex justify-center items-center text-white ">
