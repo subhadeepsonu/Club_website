@@ -69,7 +69,7 @@ export default function Navbar(){
             duration:0.3
         })
     })
-    if(path=="/login"||path=="/signup"){
+    if(path=="/login"||path=="/signup" || path=="/adminpanel"){
         return null
     }
     else{
