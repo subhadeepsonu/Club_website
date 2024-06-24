@@ -5,9 +5,10 @@ import AdminEventCard from "../admin/event"
 
 export default function AdminPanel(){
     const {data,isLoading,isError}:any = useQuery({
-        queryKey:["all events"],
+        queryKey:["adminevents"],
         queryFn:()=>GEtAllEvents()
     })
+    console.log(data)
     if(isLoading){
         return <div className="h-screen w-full text-white flex justify-center items-center ">
             Loading...
@@ -23,7 +24,7 @@ export default function AdminPanel(){
 
         
         {data.map((event:any,index:number)=>{
-            return <AdminEventCard isOpen={event.isOpen} imgurl={event.imgurl} name={event.name}></AdminEventCard>
+            return <AdminEventCard key={index} id={event.id} isOpen={event.isOpen} imgurl={event.imgurl} name={event.name}></AdminEventCard>
         })}
         </div>
         <DotPattern></DotPattern>

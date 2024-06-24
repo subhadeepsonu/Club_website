@@ -1,7 +1,4 @@
-import { FaGithub } from "react-icons/fa";
 import { PinContainer } from "../ui/3d-pin";
-import { CiLinkedin } from "react-icons/ci";
-
 export default function Membercard(props:any){
     
     return    <PinContainer  className="h-36 w-80    z-20 flex  " title={props.name} href="https://ui.shadcn.com/docs/components/tooltip">

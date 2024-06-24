@@ -7,8 +7,11 @@ export default function DepartmentCard(props:any){
     initial={{
         scale:0
     }}
-    animate={{
-        scale:1,
+    whileInView={{
+        scale:1
+    }}
+    viewport={{
+        once:true
     }}
     className="text-white   flex  justify-center items-center hover:border-cyan-600 w-80 h-40   rounded-lg border-2 border-zinc-800 hover:scale-105 duration-150 transition-all  ">
         {props.name}
