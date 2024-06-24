@@ -58,9 +58,9 @@ export default function EventRegister(props:any){
                 opacity:1,
                 
             }}
-            viewport={{
-                once:true
-            }}
+            // viewport={{
+            //     once:true
+            // }}
             transition={{
                 duration:0.5,
                 ease:"easeInOut"

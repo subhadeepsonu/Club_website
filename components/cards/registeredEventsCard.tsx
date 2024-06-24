@@ -2,16 +2,16 @@
 import { motion } from "framer-motion";
 export default function RegisteredEventsCard(props:any){
             return <motion.div initial={{
-                scale:0.5,
-                opacity:0.5
+                
+                opacity:0
             }} 
            
-            viewport={{
-                amount:0,
-                once:true
-            }}
+            // viewport={{
+                
+            //     once:true
+            // }}
             whileInView={{
-                scale:1,
+                
                 opacity:1
             }}
             transition={{
