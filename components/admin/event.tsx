@@ -27,9 +27,9 @@ export default function AdminEventCard(props:any){
         opacity:1,
         
     }}
-    viewport={{
-        once:true
-    }}
+    // viewport={{
+    //     once:true
+    // }}
     className="h-80 w-80 relative bg-black flex flex-col justify-between duration-200 items-center rounded-lg border-2 border-zinc-800 z-20 hover:border-cyan-600 hover:border-2">
         <div className={`h-8 w-20 absolute left-1 top-1 ${(props.isOpen)?'bg-green-200 text-green-700 border-green-600':'bg-red-200 text-red-700 border-red-600'}   font-semibold border-2   rounded-lg flex justify-center items-center`}>
             {(props.isOpen)?"Open":"Closed"}
