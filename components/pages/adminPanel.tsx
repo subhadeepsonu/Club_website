@@ -19,8 +19,9 @@ export default function AdminPanel(){
         Something Wen Wrong
     </div>
     }
-    return <div className="min-h-screen w-full flex  justify-center items-center text-white pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+    return <div className="min-h-screen w-full flex flex-col  justify-center items-center text-white pt-16">
+        <p className="p-10 text-2xl lg:text-4xl font-bold z-20">Manage Events</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
 
         
         {data.map((event:any,index:number)=>{

@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req:NextRequest){
+export async function GET(){
     try {
         const token  = cookies().get('token')
         const data:any = jwt.decode(token?.value!)

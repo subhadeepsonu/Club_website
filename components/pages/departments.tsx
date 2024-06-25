@@ -54,7 +54,7 @@ export default function DepartmentsPage(){
                         return <Sheet >
                         <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
                         >Add Department</Button></SheetTrigger>
-                        <SheetContent className="dark text-white">
+                        <SheetContent className="dark text-white bg-black">
                         <SheetHeader>
                         <SheetTitle className="text-2xl font-bold">Add Department</SheetTitle>
                             <SheetHeader className="font-light text-zinc-400 text-base">Add a department here,Click on save once you are done.</SheetHeader>

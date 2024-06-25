@@ -1,5 +1,4 @@
 "use client"
-import EventRegister from "@/components/cards/eventRegister";
 import RegisteredEventsCard from "@/components/cards/registeredEventsCard";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { useQuery } from "@tanstack/react-query";

@@ -73,7 +73,7 @@ export default function MembersPage(props:any){
                     return <Sheet >
                     <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
                     >Add Member</Button></SheetTrigger>
-                    <SheetContent className="dark text-white">
+                    <SheetContent className="dark text-white bg-black">
                     <SheetHeader>
                     <SheetTitle className="text-2xl font-bold">Add Member</SheetTitle>
                         <SheetHeader className="font-light text-zinc-400 text-base">Add a member here,Click on save once you are done.</SheetHeader>
