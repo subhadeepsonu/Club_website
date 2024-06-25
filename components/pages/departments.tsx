@@ -8,8 +8,17 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import DepartmentCard from "../cards/department"
 import { useRecoilState } from "recoil"
 import { departmentYearAtom } from "@/store/atoms"
+import axios from "axios"
+import { Button } from "../ui/button"
 export default function DepartmentsPage(){
     const [year,setYear] = useRecoilState(departmentYearAtom)
+    const user = useQuery({
+        queryKey:["user Details"],
+        queryFn:async ()=>{
+            const resp = await axios.get('/api/user')
+            return resp.data
+        }
+    })
     const {data,isLoading,isError}= useQuery({
         queryKey:["department",year],
         queryFn:()=>GetAllDepartments(year)
@@ -25,6 +34,20 @@ export default function DepartmentsPage(){
     }
     if(data){
         return <div className="min-h-screen w-full flex flex-col justify-start pt-16 items-center text-white z-20">
+             {(()=>{
+                if(user.isLoading){
+                    return <div></div>
+                }
+                if(user.isError){
+                    return <div></div>
+                }
+                if(user){
+                    if(user.data.message.role=="admin"){
+                        return <Button className="fixed bottom-5 right-5 z-50">Add Department</Button>
+                    }
+                    
+                }
+            })()}
             <div className="w-10/12 my-5 h-20  rounded-lg flex justify-between items-center">
                 <p className="text-white font-semibold z-20 text-4xl">Departments</p>
                 <div className="w-1/2 flex justify-end items-center">

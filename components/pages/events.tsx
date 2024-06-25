@@ -7,9 +7,17 @@ import DotPattern from "../magicui/dot-pattern"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import { useRecoilState,  } from "recoil"
 import {  eventYearAtom } from "@/store/atoms"
+import axios from "axios"
+import { Button } from "../ui/button"
 export default function EventsPage(){
     const [year,setYear] = useRecoilState(eventYearAtom)
-
+    const user = useQuery({
+        queryKey:["user Details"],
+        queryFn:async ()=>{
+            const resp = await axios.get('/api/user')
+            return resp.data
+        }
+    })
     const {data,isLoading,isError}= useQuery({
         queryKey:["events",year],
         queryFn:()=> GetAllEvents(year),
@@ -26,6 +34,20 @@ export default function EventsPage(){
     }
     if(data){
         return <div className="min-h-screen w-full flex flex-col justify-start items-center pt-16 ">
+            {(()=>{
+                if(user.isLoading){
+                    return <div></div>
+                }
+                if(user.isError){
+                    return <div></div>
+                }
+                if(user){
+                    if(user.data.message.role=="admin"){
+                        return <Button className="fixed bottom-5 right-5 z-50">Add event</Button>
+                    }
+                    
+                }
+            })()}
             <div className="w-10/12 my-5 h-20  rounded-lg flex justify-between items-center">
                 <p className="text-white font-semibold z-20 text-4xl">Events</p>
                 <div className="w-1/2 flex justify-end items-center">

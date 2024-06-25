@@ -4,10 +4,19 @@ import Loading from "@/app/Team/[department]/loading"
 import { useQuery } from "@tanstack/react-query"
 import DotPattern from "../magicui/dot-pattern"
 import Membercard from "../cards/member"
+import axios from "axios"
+import { Button } from "../ui/button"
 export default function MembersPage(props:any){
     const {data,isError,isLoading} = useQuery({
         queryKey:["members"],
         queryFn:()=>GetAllMembers(parseInt(props.id))
+    })
+    const user = useQuery({
+        queryKey:["user Details"],
+        queryFn:async ()=>{
+            const resp = await axios.get('/api/user')
+            return resp.data
+        }
     })
     if(isLoading){
         return <Loading></Loading>
@@ -19,13 +28,44 @@ export default function MembersPage(props:any){
     </div>
     }
     if(data){
+        
         if(data.length==0){
             return <div className="h-screen w-full flex justify-center items-center text-white">
+                {(()=>{
+            if(user.isLoading){
+                return <div></div>
+            }
+            if(user.isError){
+                return <div></div>
+            }
+            if(user){
+                if(user.data.message.role=="admin"){
+                    console.log(user.data.message)
+                    return <Button className="fixed bottom-5 right-5 z-50">Add Member</Button>
+                }
+                
+            }
+        })()}
             No Members
             <DotPattern></DotPattern>
         </div>
         }
         return <div className="flex flex-col justify-center items-center pt-16">
+            {(()=>{
+            if(user.isLoading){
+                return <div></div>
+            }
+            if(user.isError){
+                return <div></div>
+            }
+            if(user){
+                if(user.data.message.role=="admin"){
+                    console.log(user.data.message)
+                    return <Button className="fixed bottom-5 right-5 z-50">Add Member</Button>
+                }
+                
+            }
+        })()}
             <p className="text-white z-20 text-2xl font-bold lg:text-5xl">{data[0].department.name}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {data.map((member)=>{
