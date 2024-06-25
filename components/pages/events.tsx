@@ -1,4 +1,13 @@
 "use client"
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+  } from "@/components/ui/sheet"
+  
 import { GetAllEvents } from "@/app/events/action"
 import Loading from "@/app/events/loading"
 import { useQuery } from "@tanstack/react-query"
@@ -43,7 +52,17 @@ export default function EventsPage(){
                 }
                 if(user){
                     if(user.data.message.role=="admin"){
-                        return <Button className="fixed bottom-5 right-5 z-50">Add event</Button>
+                        return <Sheet >
+                        <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
+                        >Add Event</Button></SheetTrigger>
+                        <SheetContent className="dark text-white">
+                        <SheetHeader>
+                        <SheetTitle className="text-2xl font-bold">Add Event</SheetTitle>
+                            <SheetHeader className="font-light text-zinc-400 text-base">Add a event here,Click on save once you are done.</SheetHeader>
+                            
+                        </SheetHeader>
+                        </SheetContent>
+                    </Sheet>
                     }
                     
                 }

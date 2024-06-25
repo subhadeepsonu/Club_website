@@ -1,4 +1,12 @@
 "use client"
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+  } from "@/components/ui/sheet"
 import { GetAllDepartments } from "@/app/Team/action"
 import {  useQuery } from "@tanstack/react-query"
 import DotPattern from "../magicui/dot-pattern"
@@ -43,7 +51,17 @@ export default function DepartmentsPage(){
                 }
                 if(user){
                     if(user.data.message.role=="admin"){
-                        return <Button className="fixed bottom-5 right-5 z-50">Add Department</Button>
+                        return <Sheet >
+                        <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
+                        >Add Department</Button></SheetTrigger>
+                        <SheetContent className="dark text-white">
+                        <SheetHeader>
+                        <SheetTitle className="text-2xl font-bold">Add Department</SheetTitle>
+                            <SheetHeader className="font-light text-zinc-400 text-base">Add a department here,Click on save once you are done.</SheetHeader>
+                            
+                        </SheetHeader>
+                        </SheetContent>
+                    </Sheet>
                     }
                     
                 }

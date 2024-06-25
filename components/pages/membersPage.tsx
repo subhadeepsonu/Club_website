@@ -1,4 +1,13 @@
 "use client"
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+  } from "@/components/ui/sheet"
+  
 import { GetAllMembers } from "@/app/Team/[department]/action"
 import Loading from "@/app/Team/[department]/loading"
 import { useQuery } from "@tanstack/react-query"
@@ -61,7 +70,17 @@ export default function MembersPage(props:any){
             if(user){
                 if(user.data.message.role=="admin"){
                     console.log(user.data.message)
-                    return <Button className="fixed bottom-5 right-5 z-50">Add Member</Button>
+                    return <Sheet >
+                    <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
+                    >Add Member</Button></SheetTrigger>
+                    <SheetContent className="dark text-white">
+                    <SheetHeader>
+                    <SheetTitle className="text-2xl font-bold">Add Member</SheetTitle>
+                        <SheetHeader className="font-light text-zinc-400 text-base">Add a member here,Click on save once you are done.</SheetHeader>
+                        
+                    </SheetHeader>
+                    </SheetContent>
+                </Sheet>
                 }
                 
             }
