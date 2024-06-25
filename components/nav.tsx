@@ -113,8 +113,8 @@ export default function Navbar(){
                         else{
                             console.log(data.message.role)
                             if(data.message.role==="admin"){
-                               return <Link href={'/adminpanel'}>
-                                <DropdownMenuItem className="p-4 cursor-pointer">Admin Panel</DropdownMenuItem>
+                               return <Link href={'/manageevents'}>
+                                <DropdownMenuItem className="p-4 cursor-pointer">Manage Events</DropdownMenuItem>
                                 </Link>
                             }
                             else{
