@@ -26,7 +26,7 @@ export default function RegisteredEvents(){
     }
     return <div className="flex justify-center flex-col items-center min-h-screen w-full text-white text-center pt-20">
         <p className="mb-10 text-2xl font-bold z-20 lg:text-4xl">Registered Events</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {data.message.map((event:any,index:number)=>{
            return <RegisteredEventsCard imgurl={event.event.imgurl} name={event.event.name} key={index}></RegisteredEventsCard>
         })}

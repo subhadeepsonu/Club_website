@@ -18,9 +18,7 @@ export default function AdminEventCard(props:any){
         onError:()=>{
             toast.error("Something went wrong")
         }
-
     },
-    
 )
     return <motion.div initial={{
         opacity:0
@@ -50,8 +48,7 @@ export default function AdminEventCard(props:any){
     }}>{(MutateIsOpen.isPending)?<VscLoading className="animate-spin" />:`${(props.isOpen)?"Close ":"Open"}`}</Button>
     <Button size={"sm"} variant={"link"} onClick={()=>{
         router.push(`/manageevents/${props.id}`)
-    }}>{"Handle Events ->"}</Button>
+    }}>{"Handle Checkins ->"}</Button>
     </div>
-    
 </motion.div>
 }

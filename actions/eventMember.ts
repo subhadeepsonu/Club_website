@@ -15,11 +15,15 @@ export async function EventMembers(id:number){
                                 email:true,
                                 id:true,
                                 name:true
-                            }
+                            },
                         }
+                    },
+                    orderBy:{
+                        id:"asc"
                     }
                 }
-            }
+            },
+            
         })
         return response
     } catch (error) {
