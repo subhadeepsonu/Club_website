@@ -28,7 +28,7 @@ export default function CheckIn(props:any){
             <DotPattern></DotPattern>
             </div>
         }
-        return <div className="text-white h-screen w-full flex justify-center items-center">
+        return <div className="text-white h-screen w-full flex justify-center items-start pt-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {data.data.registeredEvents.map((users)=>{
             return <CheckInMember key={users.id} eventRegisterid={users.id} name={users.user.name} checkIn={users.checkIn}></CheckInMember>

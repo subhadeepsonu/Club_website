@@ -17,12 +17,13 @@ import z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { VscLoading } from "react-icons/vsc";
 export default function Signup(){
+  const queryClient = useQueryClient()
     const form = useForm<z.infer<typeof SignUpSchema>>({
             resolver:zodResolver(SignUpSchema),
             mode:"onChange",
@@ -47,6 +48,7 @@ export default function Signup(){
         onSuccess:(data)=>{
             if(data.success){
                 toast.success(`${data.message}`)
+                queryClient.invalidateQueries({queryKey:[]})
                 router.replace('/')
             }
             else{
