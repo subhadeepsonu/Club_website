@@ -12,15 +12,21 @@ export default function UploadPage(){
                 height:222,
                 src:`${result.info.public_id}`
             })
-            setimgurl(result.info.public_id)
+            setimgurl(url)
             console.log(url)
-        }} uploadPreset="GFGVITAP" className="bg-white p-3 rounded-lg"></CldUploadButton>
-        {(imgurl.length===0)?"":<CldImage className="m-3 rounded-lg"
-  width="300"
-  height="300"
+        }} uploadPreset="GFGVITAP" className="bg-white p-3 rounded-lg">
+            
+        </CldUploadButton>
+        <div className="h-96 w-96">
+        {(imgurl.length===0)?"":<CldImage 
+        deliveryType="fetch"
+        className="m-3 rounded-lg object-cover"
+  width="384"
+  height="384"
   src={imgurl}
   sizes="100vw"
   alt="Description of my image"
 />}
+</div>
     </div>
 }
