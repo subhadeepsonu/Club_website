@@ -2,7 +2,7 @@
 
 import prisma from "@/db"
 
-export async function AddMember(imgurl:string,name:string,departmentid:number){
+export async function AddMemberAction(imgurl:string,name:string,departmentid:number){
     try {
         const response = await prisma.members.create({
             data:{

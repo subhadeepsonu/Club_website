@@ -18,6 +18,7 @@ import { useRecoilState,  } from "recoil"
 import {  eventYearAtom } from "@/store/atoms"
 import axios from "axios"
 import { Button } from "../ui/button"
+import AddEvent from "../forms/AddEvent"
 export default function EventsPage(){
     const [year,setYear] = useRecoilState(eventYearAtom)
     const user = useQuery({
@@ -58,8 +59,8 @@ export default function EventsPage(){
                         <SheetContent className="dark text-white bg-black ">
                         <SheetHeader>
                         <SheetTitle className="text-2xl font-bold">Add Event</SheetTitle>
-                            <SheetHeader className="font-light text-zinc-400 text-base">Add a event here,Click on save once you are done.</SheetHeader>
-                            
+                        <SheetHeader className="font-light text-zinc-400 text-base">Add a event here,Click on save once you are done.</SheetHeader>
+                        <AddEvent></AddEvent>    
                         </SheetHeader>
                         </SheetContent>
                     </Sheet>

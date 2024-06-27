@@ -18,6 +18,7 @@ import { useRecoilState } from "recoil"
 import { departmentYearAtom } from "@/store/atoms"
 import axios from "axios"
 import { Button } from "../ui/button"
+import AddDepartment from "../forms/AddDepartment"
 export default function DepartmentsPage(){
     const [year,setYear] = useRecoilState(departmentYearAtom)
     const user = useQuery({
@@ -57,8 +58,8 @@ export default function DepartmentsPage(){
                         <SheetContent className="dark text-white bg-black">
                         <SheetHeader>
                         <SheetTitle className="text-2xl font-bold">Add Department</SheetTitle>
-                            <SheetHeader className="font-light text-zinc-400 text-base">Add a department here,Click on save once you are done.</SheetHeader>
-                            
+                        <SheetHeader className="font-light text-zinc-400 text-base">Add a department here,Click on save once you are done.</SheetHeader>
+                        <AddDepartment></AddDepartment>    
                         </SheetHeader>
                         </SheetContent>
                     </Sheet>

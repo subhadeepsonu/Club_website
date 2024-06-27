@@ -46,7 +46,7 @@ model events {
 model department {
   id      Int       @id @default(autoincrement())
   name    String
-  imgurl  String
+  imgurl  String?
   members members[]
   year    Int
 }

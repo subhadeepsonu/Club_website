@@ -15,6 +15,7 @@ import DotPattern from "../magicui/dot-pattern"
 import Membercard from "../cards/member"
 import axios from "axios"
 import { Button } from "../ui/button"
+import AddMember from "../forms/AddMember"
 export default function MembersPage(props:any){
     const {data,isError,isLoading} = useQuery({
         queryKey:["members",props.id],
@@ -76,8 +77,8 @@ export default function MembersPage(props:any){
                     <SheetContent className="dark text-white bg-black">
                     <SheetHeader>
                     <SheetTitle className="text-2xl font-bold">Add Member</SheetTitle>
-                        <SheetHeader className="font-light text-zinc-400 text-base">Add a member here,Click on save once you are done.</SheetHeader>
-                        
+                    <SheetHeader className="font-light text-zinc-400 text-base">Add a member here,Click on save once you are done.</SheetHeader>
+                    <AddMember></AddMember>    
                     </SheetHeader>
                     </SheetContent>
                 </Sheet>
