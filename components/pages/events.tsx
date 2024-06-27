@@ -56,11 +56,13 @@ export default function EventsPage(){
                         return <Sheet >
                         <SheetTrigger className="z-50 fixed right-5 bottom-5 bg-white rounded-lg"><Button
                         >Add Event</Button></SheetTrigger>
-                        <SheetContent className="dark text-white bg-black ">
+                        <SheetContent className="dark  text-white bg-black ">
                         <SheetHeader>
                         <SheetTitle className="text-2xl font-bold">Add Event</SheetTitle>
                         <SheetHeader className="font-light text-zinc-400 text-base">Add a event here,Click on save once you are done.</SheetHeader>
+                        
                         <AddEvent></AddEvent>    
+                        
                         </SheetHeader>
                         </SheetContent>
                     </Sheet>

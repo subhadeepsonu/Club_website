@@ -15,6 +15,6 @@ export default function AddDepartment(){
         mutationFn:()=>AddDepartmentAction(values.name,parseInt(values.year))
     })
     return <div className="h-screen w-full flex justify-center items-center">
-        
+        Add Department
     </div>
 }
