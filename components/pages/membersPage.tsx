@@ -17,7 +17,7 @@ import axios from "axios"
 import { Button } from "../ui/button"
 export default function MembersPage(props:any){
     const {data,isError,isLoading} = useQuery({
-        queryKey:["members"],
+        queryKey:["members",props.id],
         queryFn:()=>GetAllMembers(parseInt(props.id))
     })
     const user = useQuery({
