@@ -1,15 +1,10 @@
 "use client"
 import { motion } from "framer-motion";
+import { Button } from "../ui/button";
 export default function RegisteredEventsCard(props:any){
-            return <motion.div initial={{
-                
+            return <motion.div initial={{ 
                 opacity:0
             }} 
-           
-            // viewport={{
-                
-            //     once:true
-            // }}
             whileInView={{
                 
                 opacity:1
@@ -25,8 +20,9 @@ export default function RegisteredEventsCard(props:any){
 
                     </img>
                 </div>
-                <div className="w-full h-24 text-xl font-semibold flex justify-center items-center bg-black rounded-b-lg">
-                        {props.name}
+                <div className="w-full h-24 text-xl font-semibold flex justify-around items-center bg-black rounded-b-lg">
+                       <div className="w-1/2 text-lg"> {props.name}</div>
+                        {(props.checkIn)?<Button size={"sm"} className="">Mail certificate</Button>:<div className="text-sm  bg-red-200 p-1 rounded-lg text-red-700 border-red-700 border-2">Not checked In</div>}
                 </div>
             </motion.div>
 }

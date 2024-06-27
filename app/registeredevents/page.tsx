@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 export default function RegisteredEvents(){
-    const {data,isLoading,isError}=useQuery({
+    const {data,isLoading,isError} = useQuery({
         queryKey:["registered events  user"],
         queryFn: async()=>{
             const responce  = await axios.get('/api/register')
@@ -28,7 +28,7 @@ export default function RegisteredEvents(){
         <p className="mb-10 text-2xl font-bold z-20 lg:text-4xl">Registered Events</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {data.message.map((event:any,index:number)=>{
-           return <RegisteredEventsCard imgurl={event.event.imgurl} name={event.event.name} key={index}></RegisteredEventsCard>
+           return <RegisteredEventsCard checkIn={event.checkIn} imgurl={event.event.imgurl} name={event.event.name} key={index}></RegisteredEventsCard>
         })}
         </div>
         <DotPattern></DotPattern>

@@ -4,7 +4,7 @@ import DotPattern from "../magicui/dot-pattern"
 import AdminEventCard from "../admin/event"
 
 export default function AdminPanel(){
-    const {data,isLoading,isError}:any = useQuery({
+    const {data,isLoading,isError} = useQuery({
         queryKey:["adminevents"],
         queryFn:()=>GEtAllEvents()
     })
@@ -22,9 +22,7 @@ export default function AdminPanel(){
     return <div className="min-h-screen w-full flex flex-col  justify-center items-center text-white pt-16">
         <p className="p-10 text-2xl lg:text-4xl font-bold z-20">Manage Events</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
-
-        
-        {data.map((event:any,index:number)=>{
+        {data!.map((event,index:number)=>{
             return <AdminEventCard key={index} id={event.id} isOpen={event.isOpen} imgurl={event.imgurl} name={event.name}></AdminEventCard>
         })}
         </div>
