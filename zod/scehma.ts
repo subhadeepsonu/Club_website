@@ -21,4 +21,6 @@ export const AddEventSchema = z.object({
 })
 export const AddMemberSchema = z.object({
     name:z.string().min(1,{message:"Name is required"}),
+    git:z.string().min(1,{message:"Name is required"}),
+    linkedin:z.string().min(1,{message:"Name is required"}),
 })

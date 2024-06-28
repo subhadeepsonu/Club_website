@@ -78,7 +78,7 @@ export default function MembersPage(props:any){
                     <SheetHeader>
                     <SheetTitle className="text-2xl font-bold">Add Member</SheetTitle>
                     <SheetHeader className="font-light text-zinc-400 text-base">Add a member here,Click on save once you are done.</SheetHeader>
-                    <AddMember></AddMember>    
+                    <AddMember id={parseInt(props.id)}></AddMember>    
                     </SheetHeader>
                     </SheetContent>
                 </Sheet>

@@ -2,12 +2,14 @@
 
 import prisma from "@/db"
 
-export async function AddMemberAction(imgurl:string,name:string,departmentid:number){
+export async function AddMemberAction(imgurl:string,name:string,departmentid:number,gitlink:string,linkedin:string){
     try {
         const response = await prisma.members.create({
             data:{
                 imgurl:imgurl,
                 name:name,
+                gitlink:gitlink,
+                linkedin:linkedin,
                 departmentid:departmentid
             }
         })

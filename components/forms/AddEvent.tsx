@@ -15,7 +15,8 @@ export default function AddEvent(){
     const [imgurl,setImgurl] = useState("")
     const queryClient = useQueryClient()
     const form = useForm<z.infer<typeof AddEventSchema>>({
-        resolver: zodResolver(AddEventSchema)
+        resolver: zodResolver(AddEventSchema),
+        mode:"onChange"
     })
   
     const values = form.getValues()
