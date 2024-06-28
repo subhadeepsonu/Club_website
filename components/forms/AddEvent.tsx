@@ -12,6 +12,7 @@ import { Textarea } from "../ui/textarea"
 import { Button } from "../ui/button"
 import { toast } from "sonner"
 import { CldUploadButton, CldUploadWidget, getCldImageUrl } from "next-cloudinary"
+import { SheetOverlay, SheetPortal } from "../ui/sheet"
 export default function AddEvent(){
     const [imgurl,setImgurl] = useState("")
     const form = useForm<z.infer<typeof AddEventSchema>>({
@@ -25,12 +26,10 @@ export default function AddEvent(){
         }
     })
     return <div className="min-h-screen w-full flex flex-col justify-center items-center">
-      {/* <Input type="file" onChange={(e)=>{
-        
-        
-      }}></Input> */}
+       
         <Form {...form}>
             <form className="w-full flex flex-col justify-around" onSubmit={form.handleSubmit(()=>MutateAddEvent.mutate())} >
+           <CldUploadButton className="px-3 py-2 bg-white text-black rounded-lg w-20"></CldUploadButton>
          <FormField
           control={form.control}
           name="name"
@@ -51,7 +50,7 @@ export default function AddEvent(){
             <FormItem>
               <FormLabel>Location</FormLabel>
               <FormControl>
-                <Input type="file" placeholder="Location" {...field} />
+                <Input type="" placeholder="Location" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
