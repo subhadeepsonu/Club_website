@@ -58,4 +58,6 @@ model members {
   department   department @relation(fields: [departmentid], references: [id])
   departmentid Int
   role         String     @default("Member")
+  gitlink      String?
+  linkedin     String?
 }
