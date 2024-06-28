@@ -4,7 +4,7 @@ export async function GetAllEvents(year:number,userid?:string){
     try {
         const response = await prisma.events.findMany({
             orderBy:{
-                date:"desc"
+                id:"desc"
             },
             where:{
                 year:year
