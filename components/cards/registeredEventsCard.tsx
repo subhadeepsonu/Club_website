@@ -34,7 +34,7 @@ export default function RegisteredEventsCard(props:any){
                 </div>
                 <div className="w-full h-24 text-xl font-semibold flex justify-around items-center bg-black rounded-b-lg">
                        <div className="w-1/2 text-lg"> {props.name}</div>
-                        {(props.checkIn)?<Button size={"sm"} onClick={()=>MutateMail.mutate()}  className="">Mail certificate</Button>:<div className="text-sm  bg-red-200 p-1 rounded-lg text-red-700 border-red-700 border-2">Not checked In</div>}
+                        {(props.checkIn)?<Button disabled={MutateMail.isPending} size={"sm"} onClick={()=>MutateMail.mutate()}  className="">Mail certificate</Button>:<div className="text-sm  bg-red-200 p-1 rounded-lg text-red-700 border-red-700 border-2">Not checked In</div>}
                 </div>
             </motion.div>
 }
