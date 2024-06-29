@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import {  AddMemberSchema } from "@/zod/scehma"
 import z from 'zod'
 import { useState } from "react"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { AddMemberAction } from "@/actions/addMembers"
 import {
     Form,
@@ -19,6 +19,7 @@ import { toast } from "sonner"
 export default function AddMember(props:{
     id:number
 }){
+    const queryClient = useQueryClient()
     const [imgurl,setImgurl] = useState("")
     const form = useForm<z.infer<typeof AddMemberSchema>>({
         resolver:zodResolver(AddMemberSchema),
@@ -29,6 +30,7 @@ export default function AddMember(props:{
         mutationFn:()=>AddMemberAction(imgurl,values.name,props.id,values.git,values.linkedin),
         onSuccess:()=>{
             toast.success("Added member succesfully")
+            queryClient.invalidateQueries({queryKey:["members"]})
         },
         onError:()=>{
             toast.error("Unable to add member")

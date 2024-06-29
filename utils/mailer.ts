@@ -8,17 +8,18 @@ var transport = nodemailer.createTransport({
     }
   });
 
-export const sendEmail = async ()=>{
+export const sendEmail = async (email:string,name:string)=>{
     try {
         const info = await transport.sendMail({
             from:"subhadeepthandaka@gmail.com",
-            to:"subhadeep.stuff@gmail.com",
+            to:`${email}`,
             subject:"Test",
             text:"Sup brother",
-            html:`<div style="background-color:red height:400px width:400px">
-            <p>haha brother</p>
-            <img style="height:600px; width:600px;" src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" alt="your certificate"></img>
-            </div>`
+            html:`
+            <div style="width: 600px; height: 375px; margin: 0 auto; position: relative; background-image: url('https://utfs.io/f/24fcb596-c93f-46c0-9b74-9e571db212e0-22k0zs.45.20_d8065d6d.jpg'); background-size: cover; background-position: center;">
+        <div style=" padding-left: 45%; padding-top: 28%; font-size: x-large; font-weight: bold; color: black;">${name}</div>
+    </div>
+        `
         })
         console.log("yes sir")
         console.log(info.accepted)

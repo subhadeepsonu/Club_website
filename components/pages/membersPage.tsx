@@ -86,7 +86,7 @@ export default function MembersPage(props:any){
                 
             }
         })()}
-            <p className="text-white z-20 text-2xl font-bold lg:text-5xl">{data[0].department.name}</p>
+            <p className="text-white z-20 text-2xl font-bold lg:text-5xl mt-4">{data[0].department.name}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {data.map((member)=>{
                     return <Membercard key={member.id} name={member.name} role={member.role} department={member.department.name} imgurl={member.imgurl}></Membercard>

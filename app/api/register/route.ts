@@ -13,6 +13,9 @@ export async function GET(){
         include:{
             event:{
                 
+            },
+            user:{
+                
             }
         }
     })

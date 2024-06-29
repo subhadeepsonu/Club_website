@@ -6,7 +6,7 @@ export default function TestPage(){
     
     return <div className="h-screen w-full flex justify-center items-center">
         <Button onClick={()=>{
-            sendEmail()
+            sendEmail("subhadeep.stuff@gmail.com","sonu")
         }}>Send mail</Button>
     </div>
 }
