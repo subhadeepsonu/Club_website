@@ -1,9 +1,10 @@
 import { sendEmail } from "@/utils/mailer";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(){
+export async function POST(req:NextRequest){
     try {
-        await sendEmail()
+        const data = await req.json()
+        await sendEmail(data.email,data.name)
         return NextResponse.json({
             success:true,
             message:"mailsent"
