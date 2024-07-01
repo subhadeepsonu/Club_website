@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import { cookies } from "next/headers";
+ export const runtime = 'edge'
 export async function POST(req:NextRequest){
     try {
         const data = await req.json()

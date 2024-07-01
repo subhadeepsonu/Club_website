@@ -3,7 +3,7 @@ import { GetDataFromToken } from "@/utils/GetDataFromTokeen";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-
+ export const runtime = 'edge'
 export async function GET(){
     try {
         const token  = cookies().get('token')
