@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import MeetTheTeam from "@/components/MeetTheteam";
+
 export default function Home() {
   const [xscale,setXscale] = useState(0)
   const [yscale,setYscale] = useState(0)
