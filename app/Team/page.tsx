@@ -1,7 +1,7 @@
 import DepartmentsPage from "@/components/pages/departments";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken"
- export const runtime = 'edge'
+
 export default function Team(){
     const token = cookies().get('token')
     
